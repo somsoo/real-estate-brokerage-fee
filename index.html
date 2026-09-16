@@ -2,6 +2,11 @@
 
 <html lang="ko">
 <head>
+    <!-- Performance Optimization: Resource Preconnect -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
 <link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -97,7 +102,18 @@
     max-width: 100% !important;
     overflow: hidden !important;
   }
-</style>
+
+        /* U3 Accessibility: Global Keyboard Focus Ring Standard */
+        :focus-visible {
+            outline: 2px solid #3b82f6 !important;
+            outline-offset: 2px !important;
+        }
+        input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible {
+            outline: 2px solid #2563eb !important;
+            outline-offset: 1px !important;
+        }
+    
+    </style>
 <meta content="summary_large_image" name="twitter:card"/><meta content="부동산 중개보수 복비 상한요율 계산기 | 2026 최신 공식 기준" name="twitter:title"/><meta content="법정 상한요율 100% 반영! 매매/전세/월세 중개보수 및 한도액, 부가세까지 실시간 자동 계산." name="twitter:description"/><meta content="https://real-estate-brokerage-fee.enjoy-onepage.com/og-image.png" name="twitter:image"/></head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
 <!-- 상단 슬림 띠배너 (헤더 직하단: 50~60px 슬림형) -->
@@ -140,13 +156,13 @@
 <label class="block text-xs font-bold text-slate-600 mb-1.5">1. 대상 부동산 유형</label>
 <div class="grid grid-cols-3 gap-2">
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-blue-50 border-blue-600 text-blue-700" id="labelPropHouse">
-<input checked="" class="hidden" name="propType" type="radio" value="house"/> 🏠 주택 (아파트/빌라)
+<input checked="" class="hidden" name="propType" type="radio" value="house" aria-label="propType" /> 🏠 주택 (아파트/빌라)
             </label>
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelPropOfficetel">
-<input class="hidden" name="propType" type="radio" value="officetel"/> 🏢 주거용 오피스텔
+<input class="hidden" name="propType" type="radio" value="officetel" aria-label="propType" /> 🏢 주거용 오피스텔
             </label>
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelPropEtc">
-<input class="hidden" name="propType" type="radio" value="etc"/> 🏬 상가 / 토지
+<input class="hidden" name="propType" type="radio" value="etc" aria-label="propType" /> 🏬 상가 / 토지
             </label>
 </div>
 </div>
@@ -155,13 +171,13 @@
 <label class="block text-xs font-bold text-slate-600 mb-1.5">2. 거래 종류</label>
 <div class="grid grid-cols-3 gap-2">
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-blue-50 border-blue-600 text-blue-700" id="labelTradeBuy">
-<input checked="" class="hidden" name="tradeType" type="radio" value="buy"/> 매매 / 교환
+<input checked="" class="hidden" name="tradeType" type="radio" value="buy" aria-label="tradeType" /> 매매 / 교환
             </label>
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelTradeJeonse">
-<input class="hidden" name="tradeType" type="radio" value="jeonse"/> 전세
+<input class="hidden" name="tradeType" type="radio" value="jeonse" aria-label="tradeType" /> 전세
             </label>
 <label class="flex items-center justify-center p-2.5 border rounded-xl cursor-pointer text-xs font-bold transition select-none bg-white border-slate-200 text-slate-600" id="labelTradeRent">
-<input class="hidden" name="tradeType" type="radio" value="rent"/> 월세 (반전세)
+<input class="hidden" name="tradeType" type="radio" value="rent" aria-label="tradeType" /> 월세 (반전세)
             </label>
 </div>
 </div>
@@ -169,7 +185,7 @@
 <div>
 <label class="block text-xs font-bold text-slate-600 mb-1.5" id="depositLabel">거래 금액 (매매가)</label>
 <div class="relative">
-<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition pr-10" id="dealPrice" placeholder="0" type="text" value="600,000,000"/>
+<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition pr-10" id="dealPrice" placeholder="0" type="text" value="600,000,000" aria-label="0" />
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">원</span>
 </div>
 <div class="flex gap-1.5 mt-1.5 flex-wrap">
@@ -183,7 +199,7 @@
 <div class="hidden" id="monthlyRentGroup">
 <label class="block text-xs font-bold text-slate-600 mb-1.5">월 차임액 (월세)</label>
 <div class="relative">
-<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition pr-10" id="monthlyRent" placeholder="0" type="text" value="0"/>
+<input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition pr-10" id="monthlyRent" placeholder="0" type="text" value="0" aria-label="0" />
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">원</span>
 </div>
 <p class="text-xs text-slate-500 mt-1">* 월세 환산보증금 = 보증금 + (월세 × 100) (단, 5천만원 미만 시 70 적용)</p>
@@ -192,7 +208,7 @@
 <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
 <span class="text-xs font-bold text-slate-700">일반과세자 부가세(VAT 10%) 포함</span>
 <label class="relative inline-flex items-center cursor-pointer">
-<input checked="" class="sr-only peer" id="vatCheckbox" type="checkbox"/>
+<input checked="" class="sr-only peer" id="vatCheckbox" type="checkbox" aria-label="Vatcheckbox" />
 <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
 </label>
 </div>
