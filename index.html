@@ -208,10 +208,10 @@
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">원</span>
 </div>
 <div class="flex gap-1.5 mt-1.5 flex-wrap">
-<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn" data-add="10000000" type="button">+1천만</button>
-<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn" data-add="50000000" type="button">+5천만</button>
-<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn" data-add="100000000" type="button">+1억</button>
-<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn" data-add="500000000" type="button">+5억</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="10000000" type="button">+1천만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="50000000" type="button">+5천만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="100000000" type="button">+1억</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="500000000" type="button">+5억</button>
 </div>
 </div>
 <!-- 4. 월세액 (월세 선택 시에만 표시) -->
@@ -231,7 +231,7 @@
 <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
 </label>
 </div>
-<button class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition text-sm" id="calcBtn" type="button">
+<button class="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl shadow-md transition text-sm whitespace-nowrap" id="calcBtn" type="button">
           법정 상한 중개보수 계산하기 🚀
         </button>
 </section>
@@ -264,7 +264,7 @@
 <p class="font-bold">📌 중개보수 협상 꿀팁:</p>
 <p>공인중개사법상 고시된 요율은 <strong>"최고 한도(상한)"</strong>이므로, 계약 전 중개사와 상한요율 내에서 상호 협의하여 수수료를 낮출 수 있습니다. 간이과세자 중개업소는 부가세 10%가 아닌 4% 또는 면제 적용 대상입니다.</p>
 </div>
-<button class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2" onclick="copyResultToClipboard()" type="button">
+<button class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 whitespace-nowrap" onclick="copyResultToClipboard()" type="button">
 <span>📋</span> 계산 견적 복사하기
         </button>
 </section>
@@ -305,7 +305,40 @@
         * 그 외 토지·상가 등은 거래금액의 0.9% 이내에서 중개의뢰인과 개업공인중개사가 서로 협의하여 결정합니다.
       </p>
 </section>
-</main>
+
+    <!-- E-E-A-T FAQ Section (16-5 헌법 준수) -->
+    <section class="mt-8 mb-8 space-y-3">
+      <h2 class="text-xl font-bold text-gray-900 mb-4">자주 묻는 질문 (FAQ)</h2>
+      <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
+        <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          <span>입력한 데이터가 외부 서버에 저장되나요?</span>
+          <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
+        </summary>
+        <p class="mt-3 text-gray-600 text-xs leading-relaxed">
+          아닙니다. 100% 사용자의 기기 브라우저 메모리 내에서만 연산되며, 어떠한 금융/개인 데이터도 외부로 전송되지 않습니다.
+        </p>
+      </details>
+      <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
+        <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          <span>2026년 최신 공식 기준이 반영되어 있나요?</span>
+          <summary class="text-blue-600 group-open:rotate-180 transition transform"></summary>
+        </summary>
+        <p class="mt-3 text-gray-600 text-xs leading-relaxed">
+          네, 최신 고시된 법령 및 공공 기준 요율을 상수로 반영하여 정확한 산출 결과를 제공합니다.
+        </p>
+      </details>
+      <details class="bg-gray-50 p-4 rounded-xl border border-gray-200 group">
+        <summary class="font-bold text-gray-800 cursor-pointer list-none flex justify-between items-center">
+          <span>결과를 다른 사람이나 카카오톡으로 공유할 수 있나요?</span>
+          <span class="text-blue-600 group-open:rotate-180 transition transform">▼</span>
+        </summary>
+        <p class="mt-3 text-gray-600 text-xs leading-relaxed">
+          '결과 복사하기' 버튼을 누르면 정돈된 요약 텍스트와 바로가기 주소가 클립보드에 자동 복사됩니다.
+        </p>
+      </details>
+    </section>
+
+  </main>
 <!-- 📌 상세 가이드 & FAQ 아코디언 (Google E-E-A-T 및 실사용자 가이드라인 100% 충족) -->
 <section class="max-w-4xl mx-auto my-12 px-4">
 <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
