@@ -151,6 +151,120 @@
   .ad-bottom { min-height: 280px !important; }
   .ad-bottom ins { min-height: 280px !important; }
 </style>
+
+<style id="brokerage-modern-enhancements">
+/* Brokerage Modern Fintech UI Enhancements */
+.receipt-card-frame {
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+  position: relative;
+}
+.receipt-header-bar {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 18px 20px;
+  text-align: center;
+  border-bottom: 3px solid #2563eb;
+}
+.receipt-seal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid #10b981;
+  color: #34d399;
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 3px 12px;
+  border-radius: 9999px;
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.receipt-title {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.receipt-subtitle {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+.highlight-row {
+  background-color: #eff6ff !important;
+  font-weight: 800 !important;
+  color: #1e40af !important;
+  box-shadow: inset 4px 0 0 #2563eb;
+}
+.quick-btn {
+  padding: 5px 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.78rem;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  white-space: nowrap;
+}
+.quick-btn:hover {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+.quick-btn.reset {
+  color: #dc2626;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+.btn-action-primary {
+  flex: 1.2;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+}
+.btn-action-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  transform: translateY(-1px);
+}
+.btn-action-secondary {
+  flex: 1;
+  background: #f8fafc;
+  color: #334155;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #cbd5e1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+.btn-action-secondary:hover {
+  background: #f1f5f9;
+  border-color: #94a3b8;
+}
+</style>
+
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased font-sans min-h-screen flex flex-col justify-between">
 <!-- 상단 슬림 띠배너 (헤더 직하단: 50~60px 슬림형) -->
@@ -230,6 +344,7 @@
 <button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="50000000" type="button">+5천만</button>
 <button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="100000000" type="button">+1억</button>
 <button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-price-btn whitespace-nowrap" data-add="500000000" type="button">+5억</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-500 text-xs rounded font-medium reset-price-btn whitespace-nowrap" type="button">↺ 초기화</button>
 </div>
 </div>
 <!-- 4. 월세액 (월세 선택 시에만 표시) -->
@@ -238,6 +353,13 @@
 <div class="relative">
 <input class="w-full p-3 text-right font-bold text-lg border border-slate-200 bg-slate-50 focus:bg-white rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition pr-10" id="monthlyRent" placeholder="0" type="text" value="0" aria-label="0" />
 <span class="absolute right-3.5 top-3.5 text-sm font-bold text-slate-500">원</span>
+</div>
+<div class="flex gap-1.5 mt-1.5 flex-wrap">
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-rent-btn whitespace-nowrap" data-add="50000" type="button">+5만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-rent-btn whitespace-nowrap" data-add="100000" type="button">+10만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-rent-btn whitespace-nowrap" data-add="300000" type="button">+30만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs rounded font-medium add-rent-btn whitespace-nowrap" data-add="500000" type="button">+50만</button>
+<button class="px-2 py-1 bg-slate-100 hover:bg-slate-200 text-slate-500 text-xs rounded font-medium reset-rent-btn whitespace-nowrap" type="button">↺ 초기화</button>
 </div>
 <p class="text-xs text-slate-500 mt-1">* 월세 환산보증금 = 보증금 + (월세 × 100) (단, 5천만원 미만 시 70 적용)</p>
 </div>
@@ -293,7 +415,7 @@
 <span>📖</span> 2026 공인중개사법 시행규칙 주택 중개보수 상한요율표
       </h3>
 <div class="overflow-x-auto">
-<table class="w-full text-xs text-left border-collapse">
+<table id="rateTable" class="w-full text-xs text-left border-collapse">
 <thead>
 <tr class="bg-slate-100 text-slate-700 border-b border-slate-200">
 <th class="p-2.5 font-bold">구분</th>
@@ -834,5 +956,235 @@
       document.body.removeChild(ta);
     }
   </script>
+
+<script>
+// Real Estate UI Modern Enhancements
+(function() {
+  // Quick rent buttons
+  document.querySelectorAll('.add-rent-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var rentEl = document.getElementById('monthlyRent');
+      if (!rentEl) return;
+      var addVal = parseInt(this.getAttribute('data-add'), 10) || 0;
+      var current = parseInt(rentEl.value.replace(/[^0-9]/g, ''), 10) || 0;
+      rentEl.value = Number(current + addVal).toLocaleString('ko-KR');
+      if (typeof calculateBrokerageFee === 'function') calculateBrokerageFee();
+    });
+  });
+
+  // Reset buttons
+  var resetPriceBtn = document.querySelector('.reset-price-btn');
+  if (resetPriceBtn) {
+    resetPriceBtn.addEventListener('click', function() {
+      var dealEl = document.getElementById('dealPrice');
+      if (dealEl) { dealEl.value = '0'; if (typeof calculateBrokerageFee === 'function') calculateBrokerageFee(); }
+    });
+  }
+  var resetRentBtn = document.querySelector('.reset-rent-btn');
+  if (resetRentBtn) {
+    resetRentBtn.addEventListener('click', function() {
+      var rentEl = document.getElementById('monthlyRent');
+      if (rentEl) { rentEl.value = '0'; if (typeof calculateBrokerageFee === 'function') calculateBrokerageFee(); }
+    });
+  }
+
+  // Rate Table Dynamic Highlighting
+  window.highlightMatchingRateRow = function(propType, tradeType, targetAmount) {
+    var tbl = document.getElementById('rateTable');
+    if (!tbl) return;
+    var rows = tbl.querySelectorAll('tbody tr');
+    rows.forEach(function(tr) { tr.classList.remove('highlight-row'); });
+
+    if (propType !== 'house') return; // 주택 외 오피스텔/토지상가는 별도 규정
+
+    var idx = -1;
+    if (tradeType === 'buy') {
+      if (targetAmount < 50000000) idx = 0;
+      else if (targetAmount < 200000000) idx = 1;
+      else if (targetAmount < 900000000) idx = 2;
+      else if (targetAmount < 1200000000) idx = 3;
+      else if (targetAmount < 1500000000) idx = 4;
+      else idx = 5;
+    } else { // 임대차
+      if (targetAmount < 50000000) idx = 6;
+      else if (targetAmount < 100000000) idx = 7;
+      else if (targetAmount < 900000000) idx = 8;
+      else if (targetAmount < 1200000000) idx = 9;
+      else if (targetAmount < 1500000000) idx = 10;
+      else idx = 11;
+    }
+
+    if (idx >= 0 && rows[idx]) {
+      rows[idx].classList.add('highlight-row');
+    }
+  };
+
+  // Web Share API
+  window.shareResult = function() {
+    var total = document.getElementById('resTotal') ? document.getElementById('resTotal').textContent : '';
+    var target = document.getElementById('resTargetAmount') ? document.getElementById('resTargetAmount').textContent : '';
+    var text = '🏡 부동산 중개보수(복비) 법정 정산 결과\n• 거래금액: ' + target + '\n• 최종 보수(VAT포함): ' + total + '\n👉 계산기: ' + window.location.href;
+    if (navigator.share) {
+      navigator.share({
+        title: '부동산 중개보수 법정 상한요율 계산 결과',
+        text: text,
+        url: window.location.href
+      }).catch(function() {});
+    } else {
+      if (typeof copyResultToClipboard === 'function') {
+        copyResultToClipboard();
+      }
+    }
+  };
+
+  // High-Resolution Native Canvas Receipt PNG Generator (Zero External Libraries)
+  window.downloadReceiptPNG = function() {
+    var canvas = document.createElement('canvas');
+    var ctx = canvas.getContext('2d');
+    canvas.width = 640;
+    canvas.height = 840;
+
+    // Background
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, 640, 840);
+
+    // Top Header Banner
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(0, 0, 640, 110);
+
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 23px -apple-system, BlinkMacSystemFont, "Malgun Gothic", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('부동산 중개보수 법정 정산 영수증', 320, 52);
+
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '13px sans-serif';
+    ctx.fillText('공인중개사법 시행규칙 제20조 별표 상한요율 기준', 320, 82);
+
+    // Outer Box
+    ctx.strokeStyle = '#e2e8f0';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(30, 130, 580, 660);
+
+    // Total Amount Box
+    ctx.fillStyle = '#f8fafc';
+    ctx.fillRect(50, 150, 540, 110);
+    ctx.strokeStyle = '#cbd5e1';
+    ctx.setLineDash([4, 4]);
+    ctx.strokeRect(50, 150, 540, 110);
+    ctx.setLineDash([]);
+
+    ctx.fillStyle = '#64748b';
+    ctx.font = 'bold 14px sans-serif';
+    ctx.fillText('최종 지급 예상액 (부가가치세 포함)', 320, 185);
+
+    var resTotal = (document.getElementById('resTotal') && document.getElementById('resTotal').textContent) || '0 원';
+    ctx.fillStyle = '#2563eb';
+    ctx.font = '900 32px sans-serif';
+    ctx.fillText(resTotal, 320, 230);
+
+    // Get Details
+    var propText = '주택';
+    var pRadio = document.querySelector('input[name="propType"]:checked');
+    if (pRadio && pRadio.value === 'officetel') propText = '오피스텔(주거용)';
+    else if (pRadio && pRadio.value === 'etc') propText = '토지·상가 등';
+
+    var tradeText = '매매·교환';
+    var tRadio = document.querySelector('input[name="tradeType"]:checked');
+    if (tRadio && tRadio.value === 'jeonse') tradeText = '전세';
+    else if (tRadio && tRadio.value === 'rent') tradeText = '월세(임대차)';
+
+    var items = [
+      ['거래 대상 및 유형', propText + ' · ' + tradeText],
+      ['환산 거래가액', (document.getElementById('resTargetAmount') && document.getElementById('resTargetAmount').textContent) || '-'],
+      ['법정 상한 요율', (document.getElementById('resRate') && document.getElementById('resRate').textContent) || '-'],
+      ['법정 한도액 제한', (document.getElementById('resLimit') && document.getElementById('resLimit').textContent) || '-'],
+      ['순수 중개보수 (공급가액)', (document.getElementById('resPureFee') && document.getElementById('resPureFee').textContent) || '-'],
+      ['부가가치세 (일반 10%)', (document.getElementById('resVat') && document.getElementById('resVat').textContent) || '-']
+    ];
+
+    var y = 300;
+    for (var i = 0; i < items.length; i++) {
+      ctx.textAlign = 'left';
+      ctx.fillStyle = '#64748b';
+      ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(items[i][0], 60, y);
+
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#0f172a';
+      ctx.font = '800 15px sans-serif';
+      ctx.fillText(items[i][1], 570, y);
+
+      ctx.strokeStyle = '#f1f5f9';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      ctx.moveTo(60, y + 14);
+      ctx.lineTo(580, y + 14);
+      ctx.stroke();
+
+      y += 42;
+    }
+
+    // Advice Notice Box
+    ctx.fillStyle = '#eff6ff';
+    ctx.fillRect(50, 580, 540, 120);
+    ctx.strokeStyle = '#bfdbfe';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(50, 580, 540, 120);
+
+    ctx.textAlign = 'left';
+    ctx.fillStyle = '#1e40af';
+    ctx.font = 'bold 13px sans-serif';
+    ctx.fillText('📌 중개보수 법적 핵심 안내', 70, 608);
+
+    ctx.fillStyle = '#3b82f6';
+    ctx.font = '12px sans-serif';
+    ctx.fillText('• 공인중개사법상 요율은 최고 한도(상한)이므로 계약 전 상호 협의 가능합니다.', 70, 634);
+    ctx.fillText('• 현금영수증 의무 발급 업종으로 연말정산 시 100% 소득공제 혜택이 적용됩니다.', 70, 656);
+    ctx.fillText('• 간이과세자(세금계산서 발급불가) 업소의 경우 부가세는 4%가 적용됩니다.', 70, 678);
+
+    // Footer Stamp
+    ctx.fillStyle = '#94a3b8';
+    ctx.font = '12px sans-serif';
+    ctx.textAlign = 'center';
+    var todayStr = new Date().toLocaleDateString('ko-KR');
+    ctx.fillText('발행일자: ' + todayStr + ' | real-estate-brokerage-fee.enjoy-onepage.com', 320, 745);
+
+    // Download action
+    var link = document.createElement('a');
+    link.download = '부동산_중개보수_정산_영수증.png';
+    link.href = canvas.toDataURL('image/png');
+    link.click();
+    if (typeof showToastNotification === 'function') {
+      showToastNotification('영수증 이미지가 저장되었습니다! 📥');
+    }
+  };
+
+  // Hook into original calculateBrokerageFee to trigger table highlight
+  var originalCalc = window.calculateBrokerageFee;
+  if (typeof originalCalc === 'function') {
+    window.calculateBrokerageFee = function() {
+      originalCalc();
+      var pRadio = document.querySelector('input[name="propType"]:checked');
+      var tRadio = document.querySelector('input[name="tradeType"]:checked');
+      var priceEl = document.getElementById('dealPrice');
+      var rentEl = document.getElementById('monthlyRent');
+      if (pRadio && tRadio && priceEl) {
+        var pVal = parseInt(priceEl.value.replace(/[^0-9]/g, ''), 10) || 0;
+        var rVal = (rentEl && parseInt(rentEl.value.replace(/[^0-9]/g, ''), 10)) || 0;
+        var target = pVal;
+        if (tRadio.value === 'rent') {
+          var conv = pVal + (rVal * 100);
+          target = conv < 50000000 ? pVal + (rVal * 70) : conv;
+        }
+        window.highlightMatchingRateRow(pRadio.value, tRadio.value, target);
+      }
+    };
+    // Run initial highlight
+    window.calculateBrokerageFee();
+  }
+})();
+</script>
+
 </body>
 </html>
