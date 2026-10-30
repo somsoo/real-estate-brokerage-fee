@@ -5,21 +5,35 @@
     <link>https://real-estate-brokerage-fee.enjoy-onepage.com/</link>
     <description>공인중개사법 시행규칙 상한요율로 매매·교환, 전세, 월세 중개보수(복비)와 부가세 10%를 바로 계산합니다.</description>
     <language>ko-KR</language>
-    <lastBuildDate>Thu, 01 Oct 2026 03:12:25 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 09:00:00 +0900</lastBuildDate>
     <atom:link href="https://real-estate-brokerage-fee.enjoy-onepage.com/rss.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>부동산 중개보수 복비 계산기 | 매매·전세·월세 상한요율</title>
+      <title>부동산 중개보수 복비 계산기 | 매매·전세·월세</title>
       <link>https://real-estate-brokerage-fee.enjoy-onepage.com/</link>
       <guid isPermaLink="true">https://real-estate-brokerage-fee.enjoy-onepage.com/</guid>
       <description>공인중개사법 시행규칙 상한요율로 매매·교환, 전세, 월세 중개보수(복비)와 부가세 10%를 바로 계산합니다.</description>
-      <pubDate>Sat, 12 Sep 2026 00:00:00 +0900</pubDate>
+      <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>오피스텔 복비 계산기 | 주거용 매매 0.5%·전월세 0.4%</title>
+      <link>https://real-estate-brokerage-fee.enjoy-onepage.com/officetel-fee.html</link>
+      <guid isPermaLink="true">https://real-estate-brokerage-fee.enjoy-onepage.com/officetel-fee.html</guid>
+      <description>전용면적 85㎡ 이하 주거용 오피스텔(매매 0.5%, 임대차 0.4%)과 업무용 오피스텔 복비를 계산합니다.</description>
+      <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
+    </item>
+    <item>
+      <title>상가·토지·지식산업센터 복비 계산기 | 상한요율 0.9%</title>
+      <link>https://real-estate-brokerage-fee.enjoy-onepage.com/commercial-land-fee.html</link>
+      <guid isPermaLink="true">https://real-estate-brokerage-fee.enjoy-onepage.com/commercial-land-fee.html</guid>
+      <description>주택 외 상가·사무실·토지 매매 및 임대차 시 0.9% 이내 협의 요율과 권리금 수수료 기준을 안내합니다.</description>
+      <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
     </item>
     <item>
       <title>개인정보처리방침 | 부동산 중개보수 복비 상한요율 계산기</title>
       <link>https://real-estate-brokerage-fee.enjoy-onepage.com/privacy.html</link>
       <guid isPermaLink="true">https://real-estate-brokerage-fee.enjoy-onepage.com/privacy.html</guid>
       <description>개인정보처리방침 | 부동산 중개보수 복비 상한요율 계산기</description>
-      <pubDate>Sat, 12 Sep 2026 01:10:00 +0900</pubDate>
+      <pubDate>Mon, 26 Oct 2026 09:00:00 +0900</pubDate>
     </item>
   </channel>
 </rss>
