@@ -1,0 +1,26 @@
+{
+ "app": "real-estate-brokerage-fee",
+ "host": "real-estate-brokerage-fee.enjoy-onepage.com",
+ "watch": false,
+ "status": "unverified",
+ "checked": "",
+ "soft_days": 60,
+ "hard_days": 120,
+ "grace_days": 31,
+ "hide": [],
+ "pages": [
+  "buy-1200m.html",
+  "buy-300m.html",
+  "buy-600m.html",
+  "buy-900m.html",
+  "commercial-land-fee.html",
+  "guide-vat-tax-deduction.html",
+  "index.html",
+  "jeonse-200m.html",
+  "jeonse-400m.html",
+  "officetel-fee.html",
+  "rent-1000-80.html"
+ ],
+ "values": {},
+ "sources": {}
+}
