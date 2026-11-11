@@ -201,6 +201,37 @@
   color: #1e40af !important;
   box-shadow: inset 4px 0 0 #2563eb;
 }
+.highlight-row td {
+  background-color: #eff6ff !important;
+  color: #1d4ed8 !important;
+  font-weight: 700;
+}
+.brokerage-action-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+@media (max-width: 640px) {
+  .brokerage-action-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.brokerage-action-btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.5rem;
+  font-size: 0.775rem;
+  font-weight: 700;
+  border-radius: 0.75rem;
+  transition: all 0.15s;
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
 .quick-btn {
   padding: 5px 10px;
   background: #f1f5f9;
@@ -533,9 +564,17 @@
 <p class="font-bold">📌 중개보수 협상 꿀팁:</p>
 <p>공인중개사법상 고시된 요율은 <strong>"최고 한도(상한)"</strong>이므로, 계약 전 중개사와 상한요율 내에서 상호 협의하여 수수료를 낮출 수 있습니다. 간이과세자 중개업소는 부가세 10%가 아닌 4% 또는 면제 적용 대상입니다.</p>
 </div>
-<button class="w-full py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2 whitespace-nowrap" onclick="copyResultToClipboard()" type="button">
-<span>📋</span> 계산 견적 복사하기
-        </button>
+<div class="brokerage-action-grid">
+  <button class="brokerage-action-btn bg-blue-600 hover:bg-blue-700 text-white shadow-sm" onclick="downloadReceiptPNG()" type="button">
+    <span>📥</span> 정산 영수증 PNG 저장
+  </button>
+  <button class="brokerage-action-btn bg-slate-100 hover:bg-slate-200 text-slate-700" onclick="copyResultToClipboard()" type="button">
+    <span>📋</span> 계산 견적 복사
+  </button>
+  <button class="brokerage-action-btn bg-slate-100 hover:bg-slate-200 text-slate-700" onclick="shareResult()" type="button">
+    <span>🔗</span> 결과 링크 공유
+  </button>
+</div>
 </section>
 </div>
 <!-- 법정 요율표 안내 섹션 -->
@@ -774,7 +813,7 @@
 
       <!-- 2026 Legal Basis & Disclaimer -->
       <div class="mt-8 mb-4 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-lg text-xs text-slate-500 text-center border border-slate-200 dark:border-slate-700">
-        <p>※ 이 도구의 결과는 참고용이며 법적 효력이 없습니다.</p>
+        <p>※ 기준: 공인중개사법 제32조 및 같은 법 시행규칙 제20조 [별표 1] (2026년 11월 9일 국가법령정보센터 확인). 이 도구의 결과는 참고용이며 법적 효력이 없습니다.</p>
       </div>
 
 <!-- 🔗 딥리서치 토픽 클러스터: 관련 전문 블로그 가이드 역링크 -->
@@ -975,6 +1014,21 @@
       if (resPureFee) resPureFee.textContent = formatKRW(fee);
       if (resVat) resVat.textContent = isVat ? formatKRW(vat) : '0 원 (미포함)';
       if (resTotal) resTotal.textContent = formatKRW(totalPay);
+
+      // 6. 양방향 URL 쿼리 파라미터 동기화
+      try {
+        const params = new URLSearchParams();
+        params.set('prop', propType);
+        params.set('trade', tradeType);
+        params.set('price', priceVal);
+        params.set('rent', rentVal);
+        params.set('vat', isVat ? '1' : '0');
+        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+      } catch (e) {}
+
+      if (typeof window.highlightMatchingRateRow === 'function') {
+        window.highlightMatchingRateRow(propType, tradeType, targetAmount);
+      }
     }
 
     // Event listeners
@@ -1016,7 +1070,35 @@
       });
     });
 
-    // Initialize
+    // Initialize & URL Query Restore
+    (function restoreFromURL() {
+      try {
+        const q = new URLSearchParams(window.location.search);
+        if (q.has('prop')) {
+          const p = q.get('prop');
+          const r = document.querySelector(`input[name="propType"][value="${p}"]`);
+          if (r) r.checked = true;
+        }
+        if (q.has('trade')) {
+          const t = q.get('trade');
+          const r = document.querySelector(`input[name="tradeType"][value="${t}"]`);
+          if (r) r.checked = true;
+        }
+        if (q.has('price') && dealPriceEl) {
+          const pNum = parseInt(q.get('price'), 10) || 0;
+          dealPriceEl.value = Number(pNum).toLocaleString('ko-KR');
+        }
+        if (q.has('rent') && monthlyRentEl) {
+          const rNum = parseInt(q.get('rent'), 10) || 0;
+          monthlyRentEl.value = Number(rNum).toLocaleString('ko-KR');
+        }
+        if (q.has('vat') && vatCheckboxEl) {
+          vatCheckboxEl.checked = q.get('vat') === '1';
+        }
+      } catch (e) {}
+    })();
+
+    window.calculateBrokerageFee = calculateBrokerageFee;
     updateRadioStyles();
     calculateBrokerageFee();
   </script>
